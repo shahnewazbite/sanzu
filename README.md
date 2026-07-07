@@ -23,12 +23,12 @@ This app combines comprehensive Python notes with a built‑in compiler, so you 
 We are excited to announce the release of Sanzu v1.1! This update introduces the brand-new Sanzu AI, major compiler speed improvements, expanded study materials, and critical stability fixes to enhance your Python coding experience.
 
 ## What's New
-**Sanzu AI:** Meet your new `built-in Python assistant`. You can now ask questions, get instant explanations, and debug your code directly within the app.
+**Sanzu AI:** Meet your new built-in `Python assistant`. You can now ask questions, get instant explanations, and debug your code directly within the app.
 
 Added 150+ new comprehensive topics covering advanced concepts like decorators, generators, and list comprehensions.
 
 ## Improvements
-**Faster Compiler:** Code execution is now up to 2× faster, featuring significantly improved output rendering for a `smoother IDE` experience.
+**Faster Compiler:** Code execution is now up to 2× faster, featuring significantly improved output rendering for a smoother IDE experience.
 
 ## Bug Fixes
 **Startup Stability:** Resolved a critical crash that affected some `Android 12` devices during a cold start.
