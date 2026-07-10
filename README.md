@@ -1,7 +1,7 @@
 # Sanzu App
 Python notes and IDE application for Android
 
-click ➠ <a href="https://github.com/heysanzu/sanzu/releases/download/Sanzu_v1.1/sanzu.apk" download>
+`Click` ➠ <a href="https://github.com/heysanzu/sanzu/releases/download/Sanzu_v1.1/sanzu.apk" download>
   <button style="padding:10px 20px; background:green; color:white; border:none; border-radius:5px;">Download</button>
 </a> 
 
@@ -40,7 +40,7 @@ Full Changelog: https://github.com/heysanzu/sanzuPage/commits/Sanzu_v1.1
   <img src="sanzu.gif" alt="Sanzu - Python notes & IDE for Android" width="100">
 </p>
 
-click ➠ <a href="https://github.com/heysanzu/sanzu/releases/download/Sanzu_v1.1/sanzu.apk" download>
+`Click` ➠ <a href="https://github.com/heysanzu/sanzu/releases/download/Sanzu_v1.1/sanzu.apk" download>
   <button style="padding:10px 20px; background:green; color:white; border:none; border-radius:5px;">Download</button>
 </a>
 
