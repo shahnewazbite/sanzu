@@ -19,8 +19,16 @@ This app combines comprehensive Python notes with a built‑in compiler, so you 
   <button style="padding:10px 20px; background:green; color:white; border:none; border-radius:5px;">Download</button>
 </a>
 
+**How to Use:**
+- `Download` the appropriate version for your device.
+- `Install` the app (on Android, allow installation from `unknown sources` if needed).
+- `Open` the app and start exploring `Python notes` or use the `compiler`.
+- Write your code in the `editor`, tap `Run`, and see the `output` instantly.
+
 ## Screenshots
-App's screens
+Discover the sleek, user-friendly interface of Sanzu. Swipe through the application screens to see the IDE, interactive Python notes, and the built-in AI assistant in action.
+
+*All features, including the compiler and notes, run completely offline. The Sanzu AI module provides intelligent coding suggestions and instant debugging assistance right on your Android device.*
 
 <p align="left">
   <img src="screenshots/screen1.jpg" alt="Sanzu - Python notes & IDE for Android" width="180">
@@ -32,12 +40,6 @@ App's screens
   <img src="screenshots/screen7.jpg" alt="Sanzu - Python notes & IDE for Android" width="180">
   <img src="screenshots/screen9.jpg" alt="Sanzu - Python notes & IDE for Android" width="180">
 </p>
-
-**How to Use:**
-- `Download` the appropriate version for your device.
-- `Install` the app (on Android, allow installation from `unknown sources` if needed).
-- `Open` the app and start exploring `Python notes` or use the `compiler`.
-- Write your code in the `editor`, tap `Run`, and see the `output` instantly.
 
 ---
 
@@ -58,6 +60,21 @@ Added 150+ new comprehensive topics covering advanced concepts like decorators, 
 Full Changelog: https://github.com/heysanzu/sanzu/commits/Sanzu_v1.1
 
 ---
+
+## Contribution & Feedback
+If you enjoy Sanzu, please consider:
+
+**Reporting Issues:** If you encounter a crash or bug, please open an issue in this repository.
+
+**Suggesting Topics:** Have a Python concept you want to see explained in the "Notes" section? Open a Pull Request or a discussion.
+
+## License
+© 2026-27 Sanzu. All rights reserved.
+
+Maintained by [@heysanzu](https://github.com/heysanzu)
+
+---
+
 <p align="center">
   Made for beginners, by <a href="https://github.com/heysanzu">Shahnewaz Alam</a>
 </p>
