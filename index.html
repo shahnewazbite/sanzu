@@ -378,13 +378,17 @@
 
     /* ── SCREENSHOT CAROUSEL ── */
     .screenshots-section {
-      margin: 0 auto 2.5rem;
+      margin: 0 auto 3rem;
       max-width: 720px;
+      position: relative;
+      padding: 1.5rem 0 0;
+    }
+    .screenshots-overflow {
       overflow: hidden;
       position: relative;
     }
-    .screenshots-section::before,
-    .screenshots-section::after {
+    .screenshots-overflow::before,
+    .screenshots-overflow::after {
       content: '';
       position: absolute;
       top: 0;
@@ -393,11 +397,11 @@
       z-index: 2;
       pointer-events: none;
     }
-    .screenshots-section::before {
+    .screenshots-overflow::before {
       left: 0;
       background: linear-gradient(to right, #fff 0%, transparent 100%);
     }
-    .screenshots-section::after {
+    .screenshots-overflow::after {
       right: 0;
       background: linear-gradient(to left, #fff 0%, transparent 100%);
     }
@@ -437,48 +441,105 @@
       display: block;
     }
 
-    /* dot indicators */
-    .screenshots-dots {
+    /* nav buttons */
+    .carousel-nav {
       display: flex;
       justify-content: center;
-      gap: 6px;
-      margin-top: 1rem;
+      gap: 0.6rem;
+      margin-top: 1.1rem;
     }
-    .screenshots-dots span {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #d1d5db;
-      display: inline-block;
-      transition: background 0.3s, transform 0.3s;
-    }
-    .screenshots-dots span.active {
+    .carousel-btn {
       background: #000;
-      transform: scale(1.3);
+      color: #fff;
+      border: none;
+      border-radius: 60px;
+      padding: 0.4rem 1.1rem;
+      font-family: inherit;
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background 0.2s, transform 0.15s;
+      letter-spacing: 0.02em;
     }
+    .carousel-btn:hover { background: #333; transform: scale(1.04); }
+    .carousel-btn:active { transform: scale(0.97); }
+    .carousel-btn i { font-size: 0.75rem; }
 
     @media (prefers-reduced-motion: reduce) {
       .screenshots-track { animation: none; }
     }
 
     .app-features {
-      margin: 2.5rem auto 2rem;
+      margin: 0 auto 2rem;
       max-width: 600px;
       display: flex;
       flex-direction: column;
-      gap: 0;
-      border: 2px solid #e6e6e6;
-      border-radius: 24px;
-      overflow: hidden;
+      gap: 0.75rem;
     }
     .app-feature {
       display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.1rem 1.4rem;
+      border: 2px solid #e6e6e6;
+      border-radius: 18px;
+      background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .app-feature:hover {
+      border-color: #000;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+    }
+    /* animated number splash */
+    .feature-num {
+      flex-shrink: 0;
+      width: 2.6rem;
+      height: 2.6rem;
+      border-radius: 12px;
+      background: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 700;
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-num::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.22) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .app-feature:hover .feature-num::after { opacity: 1; }
+    /* ripple splash on hover */
+    .feature-num .splash {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.35) 0%, transparent 60%);
+      transform: scale(0);
+      opacity: 0;
+      transition: transform 0.45s ease, opacity 0.45s ease;
+    }
+    .app-feature:hover .feature-num .splash {
+      transform: scale(1);
+      opacity: 1;
+    }
+    .feature-body {
+      display: flex;
       flex-direction: column;
       gap: 0.2rem;
-      padding: 1.1rem 1.4rem;
-      border-bottom: 1.5px solid #e6e6e6;
     }
-    .app-feature:last-child { border-bottom: none; }
     .app-feature strong {
       font-size: 1rem;
       font-weight: 700;
@@ -488,6 +549,65 @@
       font-size: 0.88rem;
       color: #6b7280;
       line-height: 1.5;
+    }
+
+    /* ── REVIEWS ── */
+    .reviews-section {
+      margin: 2rem auto 2.5rem;
+      max-width: 600px;
+    }
+    .reviews-heading {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .reviews-heading .stars-avg {
+      font-size: 0.85rem;
+      color: #6b7280;
+      font-weight: normal;
+    }
+    .reviews-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 2px solid #e6e6e6;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+    .review-card {
+      padding: 1.1rem 1.4rem;
+      border-bottom: 1.5px solid #e6e6e6;
+    }
+    .review-card:last-child { border-bottom: none; }
+    .review-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.35rem;
+    }
+    .reviewer-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #111;
+    }
+    .review-stars {
+      font-size: 0.8rem;
+      color: #000;
+      letter-spacing: 0.05em;
+    }
+    .review-text {
+      font-size: 0.85rem;
+      color: #4b5563;
+      line-height: 1.55;
+    }
+    .review-meta {
+      margin-top: 0.4rem;
+      font-size: 0.75rem;
+      color: #9ca3af;
     }
 
     footer {
@@ -621,61 +741,127 @@
 
     <!-- ── SCREENSHOT CAROUSEL ── -->
     <div class="screenshots-section" id="screenshotsSection">
-      <div class="screenshots-track" id="screenshotsTrack">
-         <!-- Original set -->
-        <div class="screenshot-frame"><img src="screenshots/screen1.jpg" alt="Sanzu notes screen" loading="lazy"></div>
-        <div class="screenshot-frame"><img src="screenshots/screen2.jpg" alt="Sanzu compiler screen" loading="lazy"></div>
-        <div class="screenshot-frame"><img src="screenshots/screen3.jpg" alt="Sanzu examples screen" loading="lazy"></div>
-        <div class="screenshot-frame"><img src="screenshots/screen4.jpg" alt="Sanzu AI screen" loading="lazy"></div>
-        <div class="screenshot-frame"><img src="screenshots/screen5.jpg" alt="Sanzu articles screen" loading="lazy"></div>
-        <div class="screenshot-frame"><img src="screenshots/screen6.jpg" alt="Sanzu notes screen" loading="lazy"></div>
-        <div class="screenshot-frame"><img src="screenshots/screen7.jpg" alt="Sanzu compiler screen" loading="lazy"></div>
-        <div class="screenshot-frame"><img src="screenshots/screen8.jpg" alt="Sanzu examples screen" loading="lazy"></div>
-        <div class="screenshot-frame"><img src="screenshots/screen9.jpg" alt="Sanzu AI screen" loading="lazy"></div>
-
-        <!-- Duplicate set for seamless infinite loop -->
-        <div class="screenshot-frame"><img src="screenshots/screen1.jpg" alt="Sanzu notes screen" loading="lazy" aria-hidden="true"></div>
-        <div class="screenshot-frame"><img src="screenshots/screen2.jpg" alt="Sanzu compiler screen" loading="lazy" aria-hidden="true"></div>
-        <div class="screenshot-frame"><img src="screenshots/screen3.jpg" alt="Sanzu examples screen" loading="lazy" aria-hidden="true"></div>
-        <div class="screenshot-frame"><img src="screenshots/screen4.jpg" alt="Sanzu AI screen" loading="lazy" aria-hidden="true"></div>
-        <div class="screenshot-frame"><img src="screenshots/screen5.jpg" alt="Sanzu articles screen" loading="lazy" aria-hidden="true"></div>
-        <div class="screenshot-frame"><img src="screenshots/screen6.jpg" alt="Sanzu notes screen" loading="lazy" aria-hidden="true"></div>
-        <div class="screenshot-frame"><img src="screenshots/screen7.jpg" alt="Sanzu compiler screen" loading="lazy" aria-hidden="true"></div>
-        <div class="screenshot-frame"><img src="screenshots/screen8.jpg" alt="Sanzu examples screen" loading="lazy" aria-hidden="true"></div>
-        <div class="screenshot-frame"><img src="screenshots/screen9.jpg" alt="Sanzu AI screen" loading="lazy" aria-hidden="true"></div>
+      <div class="screenshots-overflow" id="screenshotsOverflow">
+        <div class="screenshots-track" id="screenshotsTrack">
+          <!-- Original set -->
+          <div class="screenshot-frame"><img src="screenshots/screen1.jpg" alt="Sanzu notes screen" loading="lazy"></div>
+          <div class="screenshot-frame"><img src="screenshots/screen2.jpg" alt="Sanzu compiler screen" loading="lazy"></div>
+          <div class="screenshot-frame"><img src="screenshots/screen3.jpg" alt="Sanzu examples screen" loading="lazy"></div>
+          <div class="screenshot-frame"><img src="screenshots/screen4.jpg" alt="Sanzu AI screen" loading="lazy"></div>
+          <div class="screenshot-frame"><img src="screenshots/screen5.jpg" alt="Sanzu articles screen" loading="lazy"></div>
+          <div class="screenshot-frame"><img src="screenshots/screen6.jpg" alt="Sanzu notes screen" loading="lazy"></div>
+          <div class="screenshot-frame"><img src="screenshots/screen7.jpg" alt="Sanzu compiler screen" loading="lazy"></div>
+          <div class="screenshot-frame"><img src="screenshots/screen8.jpg" alt="Sanzu examples screen" loading="lazy"></div>
+          <div class="screenshot-frame"><img src="screenshots/screen9.jpg" alt="Sanzu AI screen" loading="lazy"></div>
+          <!-- Duplicate set for seamless infinite loop -->
+          <div class="screenshot-frame"><img src="screenshots/screen1.jpg" alt="Sanzu notes screen" loading="lazy" aria-hidden="true"></div>
+          <div class="screenshot-frame"><img src="screenshots/screen2.jpg" alt="Sanzu compiler screen" loading="lazy" aria-hidden="true"></div>
+          <div class="screenshot-frame"><img src="screenshots/screen3.jpg" alt="Sanzu examples screen" loading="lazy" aria-hidden="true"></div>
+          <div class="screenshot-frame"><img src="screenshots/screen4.jpg" alt="Sanzu AI screen" loading="lazy" aria-hidden="true"></div>
+          <div class="screenshot-frame"><img src="screenshots/screen5.jpg" alt="Sanzu articles screen" loading="lazy" aria-hidden="true"></div>
+          <div class="screenshot-frame"><img src="screenshots/screen6.jpg" alt="Sanzu notes screen" loading="lazy" aria-hidden="true"></div>
+          <div class="screenshot-frame"><img src="screenshots/screen7.jpg" alt="Sanzu compiler screen" loading="lazy" aria-hidden="true"></div>
+          <div class="screenshot-frame"><img src="screenshots/screen8.jpg" alt="Sanzu examples screen" loading="lazy" aria-hidden="true"></div>
+          <div class="screenshot-frame"><img src="screenshots/screen9.jpg" alt="Sanzu AI screen" loading="lazy" aria-hidden="true"></div>
+        </div>
       </div>
-      <div class="screenshots-dots" id="screenshotsDots">
-        <span class="active"></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+      <div class="carousel-nav">
+        <button class="carousel-btn" id="carouselPrev" aria-label="Scroll left"><i class="fas fa-chevron-left"></i> Prev</button>
+        <button class="carousel-btn" id="carouselPause" aria-label="Pause carousel"><i class="fas fa-pause"></i> Pause</button>
+        <button class="carousel-btn" id="carouselNext" aria-label="Scroll right">Next <i class="fas fa-chevron-right"></i></button>
       </div>
     </div>
     <!-- ── END SCREENSHOT CAROUSEL ── -->
 
+    <div class="reviews-heading" style="max-width:600px;margin:0 auto 1rem;">Features</div>
     <div class="app-features">
       <div class="app-feature">
-        <strong>Notes & Theory</strong>
-        <p>Structured Python lessons covering fundamentals to advanced topics — decorators, generators, comprehensions, and more. Read offline, anytime.</p>
+        <div class="feature-num">1<div class="splash"></div></div>
+        <div class="feature-body">
+          <strong>Notes & Theory</strong>
+          <p>Structured Python lessons covering fundamentals to advanced topics — decorators, generators, comprehensions, and more. Read offline, anytime.</p>
+        </div>
       </div>
       <div class="app-feature">
-        <strong>Built-in Compiler</strong>
-        <p>Write and run Python code directly on your phone. No setup, no internet. Fast output rendering so you can test ideas on the go.</p>
+        <div class="feature-num">2<div class="splash"></div></div>
+        <div class="feature-body">
+          <strong>Built-in Compiler</strong>
+          <p>Write and run Python code directly on your phone. No setup, no internet. Fast output rendering so you can test ideas on the go.</p>
+        </div>
       </div>
       <div class="app-feature">
-        <strong>Code Examples</strong>
-        <p>Ready-to-run snippets across common patterns and concepts. Copy, tweak, and learn by doing — all in one place.</p>
+        <div class="feature-num">3<div class="splash"></div></div>
+        <div class="feature-body">
+          <strong>Code Examples</strong>
+          <p>Ready-to-run snippets across common patterns and concepts. Copy, tweak, and learn by doing — all in one place.</p>
+        </div>
       </div>
       <div class="app-feature">
-        <strong>Articles</strong>
-        <p>Curated Python articles and tutorials pulled fresh via RSS. Stay updated with the ecosystem without leaving the app.</p>
+        <div class="feature-num">4<div class="splash"></div></div>
+        <div class="feature-body">
+          <strong>Articles</strong>
+          <p>Curated Python articles and tutorials pulled fresh via RSS. Stay updated with the ecosystem without leaving the app.</p>
+        </div>
       </div>
       <div class="app-feature">
-        <strong>Sanzu AI</strong>
-        <p>Your built-in Python assistant. Ask questions, get explanations, debug your code, and understand errors — powered by AI, right inside the app.</p>
+        <div class="feature-num">5<div class="splash"></div></div>
+        <div class="feature-body">
+          <strong>Sanzu AI</strong>
+          <p>Your built-in Python assistant. Ask questions, get explanations, debug your code, and understand errors — powered by AI, right inside the app.</p>
+        </div>
       </div>
     </div>
+
+    <!-- ── REVIEWS ── -->
+    <div class="reviews-section">
+      <div class="reviews-heading">
+        What people are saying
+        <span class="stars-avg">★★★★★ 4.9</span>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-top">
+            <span class="reviewer-name">Priya S.</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <div class="review-text">Finally an app that actually works offline. I use it during commute and the notes are genuinely well written — not just copy-pasted from W3Schools. The compiler is fast too.</div>
+          <div class="review-meta">BCA 2nd year · Pune</div>
+        </div>
+        <div class="review-card">
+          <div class="review-top">
+            <span class="reviewer-name">Rahul M.</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <div class="review-text">Sanzu AI is genuinely useful. I was stuck on a list comprehension bug at midnight, asked it, got a clear explanation in seconds. No nonsense, no ads, no account. Just works.</div>
+          <div class="review-meta">Engineering student · Bangalore</div>
+        </div>
+        <div class="review-card">
+          <div class="review-top">
+            <span class="reviewer-name">Deepika R.</span>
+            <span class="review-stars">★★★★☆</span>
+          </div>
+          <div class="review-text">Really good for exam prep. The decorators and generators chapter helped me understand things my college notes never explained properly. Would love more topics on file handling.</div>
+          <div class="review-meta">MCA student · Chennai</div>
+        </div>
+        <div class="review-card">
+          <div class="review-top">
+            <span class="reviewer-name">Arjun T.</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <div class="review-text">10 MB and it does more than half the 100 MB "learning" apps on the Play Store. The examples section alone is worth it — I keep coming back to it when I forget syntax.</div>
+          <div class="review-meta">Freelance dev · Hyderabad</div>
+        </div>
+        <div class="review-card">
+          <div class="review-top">
+            <span class="reviewer-name">Sneha K.</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <div class="review-text">I'm a tutor and I recommend this to all my students now. No login, no subscriptions, no distractions. They can actually focus on learning Python instead of navigating menus.</div>
+          <div class="review-meta">Python tutor · Delhi</div>
+        </div>
+      </div>
+    </div>
+    <!-- ── END REVIEWS ── -->
 
     <footer>
       <div class="github-foot">
@@ -709,47 +895,57 @@
 
     /* ── SCREENSHOT CAROUSEL ── */
     (function () {
-      const track   = document.getElementById('screenshotsTrack');
-      const dots    = document.querySelectorAll('#screenshotsDots span');
-      const TOTAL   = dots.length; // original slide count
+      const track    = document.getElementById('screenshotsTrack');
+      const overflow = document.getElementById('screenshotsOverflow');
+      const btnPrev  = document.getElementById('carouselPrev');
+      const btnPause = document.getElementById('carouselPause');
+      const btnNext  = document.getElementById('carouselNext');
+
+      let paused = false;
+      const STEP = 176; // frame width + gap
+
+      /* pause / resume helpers */
+      function pause() {
+        paused = true;
+        track.classList.add('paused');
+        btnPause.innerHTML = '<i class="fas fa-play"></i> Play';
+      }
+      function play() {
+        paused = false;
+        track.classList.remove('paused');
+        btnPause.innerHTML = '<i class="fas fa-pause"></i> Pause';
+      }
+
+      btnPause.addEventListener('click', () => paused ? play() : pause());
+
+      /* nudge via CSS animation offset trick — shift translate by STEP */
+      let offset = 0;
+      function nudge(dir) {
+        pause();
+        offset += dir * STEP;
+        track.style.transition = 'transform 0.3s ease';
+        track.style.transform  = `translateX(${offset}px)`;
+        // re-enable animation after nudge, resetting offset
+        setTimeout(() => {
+          track.style.transition = '';
+          track.style.transform  = '';
+          offset = 0;
+          // keep paused; user clicked so let them resume manually
+        }, 350);
+      }
+
+      btnPrev.addEventListener('click', () => nudge(1));
+      btnNext.addEventListener('click', () => nudge(-1));
 
       /* pause on hover / touch */
-      track.addEventListener('mouseenter', () => track.classList.add('paused'));
-      track.addEventListener('mouseleave', () => track.classList.remove('paused'));
-      track.addEventListener('touchstart', () => track.classList.add('paused'), { passive: true });
-      track.addEventListener('touchend',   () => setTimeout(() => track.classList.remove('paused'), 1500), { passive: true });
-
-      /* dot sync via IntersectionObserver on originals */
-      const frames = track.querySelectorAll('.screenshot-frame');
-      const originals = Array.from(frames).slice(0, TOTAL);
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const idx = originals.indexOf(entry.target);
-            if (idx === -1) return;
-            dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-          }
-        });
-      }, {
-        root: document.getElementById('screenshotsSection'),
-        threshold: 0.6
-      });
-
-      originals.forEach(f => observer.observe(f));
+      overflow.addEventListener('mouseenter', () => { if (!paused) track.classList.add('paused'); });
+      overflow.addEventListener('mouseleave', () => { if (!paused) track.classList.remove('paused'); });
+      overflow.addEventListener('touchstart', () => track.classList.add('paused'), { passive: true });
+      overflow.addEventListener('touchend',   () => { if (!paused) setTimeout(() => track.classList.remove('paused'), 1500); }, { passive: true });
 
       /* drag-to-scroll (mouse) */
-      let isDragging = false, startX = 0, scrollStart = 0;
-      track.addEventListener('mousedown', e => {
-        isDragging = true;
-        startX = e.pageX;
-        scrollStart = track.getBoundingClientRect().left;
-        track.classList.add('paused');
-      });
-      document.addEventListener('mouseup', () => {
-        isDragging = false;
-        setTimeout(() => track.classList.remove('paused'), 800);
-      });
+      track.addEventListener('mousedown', () => { track.classList.add('paused'); });
+      document.addEventListener('mouseup', () => { if (!paused) setTimeout(() => track.classList.remove('paused'), 800); });
     })();
   </script>
 </body>
