@@ -11,14 +11,25 @@ Python notes and IDE application for Android
 ## Download "Sanzu"
 This app combines comprehensive Python notes with a built‑in compiler, so you can study and practice anywhere, without an internet connection.
 
+<p align="left">
+  <img src="sanzu.gif" alt="Sanzu - Python notes & IDE for Android" width="100">
+</p>
+
+`Click` ➠ <a href="https://github.com/heysanzu/sanzu/releases/download/Sanzu_v1.1/sanzu.apk" download>
+  <button style="padding:10px 20px; background:green; color:white; border:none; border-radius:5px;">Download</button>
+</a>
+
 ## Screenshots
 
 <p align="left">
-  <img src="screenshots/screen1.jpg" width="180">
-  <img src="screenshots/screen2.jpg" width="180">
-  <img src="screenshots/screen3.jpg" width="180">
-  <img src="screenshots/screen4.jpg" width="180">
-  <img src="screenshots/screen5.jpg" width="180">
+  <img src="screenshots/screen1.jpg" alt="Sanzu - Python notes & IDE for Android" width="180">
+  <img src="screenshots/screen2.jpg" alt="Sanzu - Python notes & IDE for Android" width="180">
+  <img src="screenshots/screen6.jpg" alt="Sanzu - Python notes & IDE for Android" width="180">
+  <img src="screenshots/screen8.jpg" alt="Sanzu - Python notes & IDE for Android" width="180">
+  <img src="screenshots/screen5.jpg" alt="Sanzu - Python notes & IDE for Android" width="180">
+  <img src="screenshots/screen3.jpg" alt="Sanzu - Python notes & IDE for Android" width="180">
+  <img src="screenshots/screen7.jpg" alt="Sanzu - Python notes & IDE for Android" width="180">
+  <img src="screenshots/screen9.jpg" alt="Sanzu - Python notes & IDE for Android" width="180">
 </p>
 
 **How to Use:**
@@ -44,14 +55,6 @@ Added 150+ new comprehensive topics covering advanced concepts like decorators, 
 **Startup Stability:** Resolved a critical crash that affected some `Android 12` devices during a cold start.
 
 Full Changelog: https://github.com/heysanzu/sanzuPage/commits/Sanzu_v1.1
-
-<p align="left">
-  <img src="sanzu.gif" alt="Sanzu - Python notes & IDE for Android" width="100">
-</p>
-
-`Click` ➠ <a href="https://github.com/heysanzu/sanzu/releases/download/Sanzu_v1.1/sanzu.apk" download>
-  <button style="padding:10px 20px; background:green; color:white; border:none; border-radius:5px;">Download</button>
-</a>
 
 ---
 <p align="center">
