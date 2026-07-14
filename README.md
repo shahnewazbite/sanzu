@@ -55,7 +55,7 @@ Added 150+ new comprehensive topics covering advanced concepts like decorators, 
 ## Bug Fixes
 **Startup Stability:** Resolved a critical crash that affected some `Android 12` devices during a cold start.
 
-Full Changelog: https://github.com/heysanzu/sanzuPage/commits/Sanzu_v1.1
+Full Changelog: https://github.com/heysanzu/sanzu/commits/Sanzu_v1.1
 
 ---
 <p align="center">
