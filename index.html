@@ -5,14 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <meta name="google-site-verification" content="mCfELgekqjHZO8bRQsXFZcHanmNYsxaxZR6P0fNfTgs"/>
   <meta name="google-site-verification" content="3TkAOAVCPkYhoBJ4Li3obN9mRe1K4xCFlLrGC2iLvN8" />
-  <!---<title>Sanzu</title>--->
-  
   <title>Sanzu – Python notes & IDE for Android | Free Offline App</title>
   <meta name="description" content="Sanzu is a free offline Python app for Android with notes, A built-in compiler, Code examples, and Sanzu AI — your personal Python assistant. No internet needed.">
   <meta name="keywords" content="Python IDE Android free, Python notes app free, offline Python compiler free download, learn Python Android app free download, free Python app, Sanzu python app, Sanzu python IDE free download, Sanzu Python IDE better than any android IDE, free app for python learner for android">
   <meta name="author" content="heysanzu">
   <link rel="canonical" href="https://heysanzu.github.io/sanzu/">
-  
+
   <meta property="og:site_name" content="Sanzu">
   <meta property="og:title" content="Sanzu – Python notes & IDE for Android">
   <meta property="og:description" content="Free offline Python app with notes, compiler, examples, articles, and AI assistant. 10 MB. No internet required.">
@@ -267,12 +265,10 @@
       color: #6b7280;
     }
 
-    /* type-specific icon bg */
     .cl-icon.new     { background: #000; }
     .cl-icon.fix     { background: #000; }
     .cl-icon.improve { background: #000; }
 
-    /* pill tags */
     .cl-tag {
       display: inline-block;
       font-size: 0.7rem;
@@ -384,42 +380,16 @@
       padding: 1.5rem 0 0;
     }
     .screenshots-overflow {
-      overflow: hidden;
-      position: relative;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
     }
-    .screenshots-overflow::before,
-    .screenshots-overflow::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 48px;
-      z-index: 2;
-      pointer-events: none;
-    }
-    .screenshots-overflow::before {
-      left: 0;
-      background: linear-gradient(to right, #fff 0%, transparent 100%);
-    }
-    .screenshots-overflow::after {
-      right: 0;
-      background: linear-gradient(to left, #fff 0%, transparent 100%);
-    }
+    .screenshots-overflow::-webkit-scrollbar { display: none; }
 
     .screenshots-track {
       display: flex;
       gap: 1rem;
       width: max-content;
-      animation: scrollScreenshots 28s linear infinite;
-      cursor: grab;
-      user-select: none;
-    }
-    .screenshots-track:active { cursor: grabbing; }
-    .screenshots-track.paused { animation-play-state: paused; }
-
-    @keyframes scrollScreenshots {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
     }
 
     .screenshot-frame {
@@ -429,11 +399,6 @@
       overflow: hidden;
       border: 2px solid #e6e6e6;
       background: #f9f9f9;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .screenshot-frame:hover {
-      border-color: #000;
-      transform: translateY(-3px);
     }
     .screenshot-frame img {
       width: 100%;
@@ -441,36 +406,7 @@
       display: block;
     }
 
-    /* nav buttons */
-    .carousel-nav {
-      display: flex;
-      justify-content: center;
-      gap: 0.6rem;
-      margin-top: 1.1rem;
-    }
-    .carousel-btn {
-      background: #000;
-      color: #fff;
-      border: none;
-      border-radius: 60px;
-      padding: 0.4rem 1.1rem;
-      font-family: inherit;
-      font-size: 0.8rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: background 0.2s, transform 0.15s;
-      letter-spacing: 0.02em;
-    }
-    .carousel-btn:hover { background: #333; transform: scale(1.04); }
-    .carousel-btn:active { transform: scale(0.97); }
-    .carousel-btn i { font-size: 0.75rem; }
-
-    @media (prefers-reduced-motion: reduce) {
-      .screenshots-track { animation: none; }
-    }
-
+    /* ── FEATURES ── */
     .app-features {
       margin: 0 auto 2rem;
       max-width: 600px;
@@ -494,7 +430,6 @@
       border-color: #000;
       box-shadow: 0 4px 14px rgba(0,0,0,0.07);
     }
-    /* animated number splash */
     .feature-num {
       flex-shrink: 0;
       width: 2.6rem;
@@ -507,33 +442,6 @@
       justify-content: center;
       font-size: 1rem;
       font-weight: 700;
-      position: relative;
-      overflow: hidden;
-    }
-    .feature-num::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.22) 0%, transparent 70%);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .app-feature:hover .feature-num::after { opacity: 1; }
-    /* ripple splash on hover */
-    .feature-num .splash {
-      position: absolute;
-      width: 200%;
-      height: 200%;
-      top: -50%;
-      left: -50%;
-      background: radial-gradient(circle, rgba(255,255,255,0.35) 0%, transparent 60%);
-      transform: scale(0);
-      opacity: 0;
-      transition: transform 0.45s ease, opacity 0.45s ease;
-    }
-    .app-feature:hover .feature-num .splash {
-      transform: scale(1);
-      opacity: 1;
     }
     .feature-body {
       display: flex;
@@ -551,7 +459,7 @@
       line-height: 1.5;
     }
 
-    /* ── REVIEWS ── */
+    /* ── REVIEWS — horizontal swipeable cards ── */
     .reviews-section {
       margin: 2rem auto 2.5rem;
       max-width: 600px;
@@ -570,44 +478,146 @@
       color: #6b7280;
       font-weight: normal;
     }
-    .reviews-grid {
+
+    /* swipe rail */
+    .reviews-rail {
+      display: flex;
+      gap: 0.85rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      padding-bottom: 0.5rem;
+    }
+    .reviews-rail::-webkit-scrollbar { display: none; }
+
+    .review-card {
+      flex-shrink: 0;
+      width: 260px;
+      scroll-snap-align: start;
+      border: 2px solid #e6e6e6;
+      border-radius: 20px;
+      padding: 1rem 1.15rem 0.9rem;
+      background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
       display: flex;
       flex-direction: column;
-      gap: 0;
-      border: 2px solid #e6e6e6;
-      border-radius: 24px;
-      overflow: hidden;
+      gap: 0.4rem;
     }
-    .review-card {
-      padding: 1.1rem 1.4rem;
-      border-bottom: 1.5px solid #e6e6e6;
+    .review-card:hover {
+      border-color: #000;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.07);
     }
-    .review-card:last-child { border-bottom: none; }
     .review-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 0.35rem;
     }
     .reviewer-name {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 700;
       color: #111;
     }
     .review-stars {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: #000;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
     }
     .review-text {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: #4b5563;
-      line-height: 1.55;
+      line-height: 1.5;
     }
     .review-meta {
-      margin-top: 0.4rem;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: #9ca3af;
+      margin-top: auto;
+      padding-top: 0.3rem;
+    }
+
+    /* swipe hint dots */
+    .reviews-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+    }
+    .reviews-dots span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #d1d5db;
+      display: inline-block;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .reviews-dots span.active {
+      background: #000;
+      transform: scale(1.3);
+    }
+
+    /* ── FAQ ── */
+    .faq-section {
+      margin: 2.5rem auto 2rem;
+      max-width: 600px;
+    }
+    .faq-heading {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 1rem;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      border: 2px solid #e6e6e6;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .faq-item {
+      border-bottom: 1.5px solid #e6e6e6;
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #111;
+      text-align: left;
+      padding: 1rem 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      transition: background 0.15s;
+      line-height: 1.4;
+    }
+    .faq-q:hover { background: #f9f9f9; }
+    .faq-q[aria-expanded="true"] { background: #f9f9f9; }
+    .faq-chevron {
+      flex-shrink: 0;
+      font-size: 0.7rem;
+      color: #9ca3af;
+      transition: transform 0.25s ease;
+    }
+    .faq-q[aria-expanded="true"] .faq-chevron {
+      transform: rotate(180deg);
+    }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.25s ease;
+      font-size: 0.85rem;
+      color: #4b5563;
+      line-height: 1.6;
+      padding: 0 1.2rem;
+    }
+    .faq-a.open {
+      max-height: 200px;
+      padding: 0 1.2rem 1rem;
     }
 
     footer {
@@ -642,12 +652,14 @@
       .hero-icon { width: 4rem; }
       .popup { padding: 1.5rem 1.2rem 1.4rem; }
       .screenshot-frame { width: 130px; }
+      .review-card { width: 230px; }
     }
     @media (max-width: 380px) {
       .site-name { font-size: 1.6rem; }
       main { padding: 0 1rem; }
       .hero-icon { width: 3.5rem; }
       .screenshot-frame { width: 110px; }
+      .review-card { width: 210px; }
     }
   </style>
 </head>
@@ -671,7 +683,6 @@
         <span class="version-tag"></span>
       </div>
 
-      <!-- THIS LIST to update changelog -->
       <ul class="changelog">
         <li>
           <div class="cl-icon new"><i class="fas fa-robot"></i></div>
@@ -702,7 +713,6 @@
           </div>
         </li>
       </ul>
-      <!-- END OF CHANGELOG LIST -->
 
       <div class="popup-footer">Released March 2026 · <a href="https://github.com/heysanzu" target="_blank" rel="noopener noreferrer" style="color:#374151;">@heysanzu</a></div>
     </div>
@@ -739,7 +749,7 @@
       </div>
     </div>
 
-    <!-- ── SCREENSHOT CAROUSEL ── -->
+    <!-- ── SCREENSHOT CAROUSEL — no nav buttons ── -->
     <div class="screenshots-section" id="screenshotsSection">
       <div class="screenshots-overflow" id="screenshotsOverflow">
         <div class="screenshots-track" id="screenshotsTrack">
@@ -753,58 +763,45 @@
           <div class="screenshot-frame"><img src="screenshots/screen7.jpg" alt="Sanzu compiler screen" loading="lazy"></div>
           <div class="screenshot-frame"><img src="screenshots/screen8.jpg" alt="Sanzu examples screen" loading="lazy"></div>
           <div class="screenshot-frame"><img src="screenshots/screen9.jpg" alt="Sanzu AI screen" loading="lazy"></div>
-          <!-- Duplicate set for seamless infinite loop -->
-          <div class="screenshot-frame"><img src="screenshots/screen1.jpg" alt="Sanzu notes screen" loading="lazy" aria-hidden="true"></div>
-          <div class="screenshot-frame"><img src="screenshots/screen2.jpg" alt="Sanzu compiler screen" loading="lazy" aria-hidden="true"></div>
-          <div class="screenshot-frame"><img src="screenshots/screen3.jpg" alt="Sanzu examples screen" loading="lazy" aria-hidden="true"></div>
-          <div class="screenshot-frame"><img src="screenshots/screen4.jpg" alt="Sanzu AI screen" loading="lazy" aria-hidden="true"></div>
-          <div class="screenshot-frame"><img src="screenshots/screen5.jpg" alt="Sanzu articles screen" loading="lazy" aria-hidden="true"></div>
-          <div class="screenshot-frame"><img src="screenshots/screen6.jpg" alt="Sanzu notes screen" loading="lazy" aria-hidden="true"></div>
-          <div class="screenshot-frame"><img src="screenshots/screen7.jpg" alt="Sanzu compiler screen" loading="lazy" aria-hidden="true"></div>
-          <div class="screenshot-frame"><img src="screenshots/screen8.jpg" alt="Sanzu examples screen" loading="lazy" aria-hidden="true"></div>
-          <div class="screenshot-frame"><img src="screenshots/screen9.jpg" alt="Sanzu AI screen" loading="lazy" aria-hidden="true"></div>
+
         </div>
       </div>
-      <div class="carousel-nav">
-        <button class="carousel-btn" id="carouselPrev" aria-label="Scroll left"><i class="fas fa-chevron-left"></i> Prev</button>
-        <button class="carousel-btn" id="carouselPause" aria-label="Pause carousel"><i class="fas fa-pause"></i> Pause</button>
-        <button class="carousel-btn" id="carouselNext" aria-label="Scroll right">Next <i class="fas fa-chevron-right"></i></button>
-      </div>
+      <!-- nav buttons removed -->
     </div>
     <!-- ── END SCREENSHOT CAROUSEL ── -->
 
     <div class="reviews-heading" style="max-width:600px;margin:0 auto 1rem;">Features</div>
     <div class="app-features">
       <div class="app-feature">
-        <div class="feature-num">1<div class="splash"></div></div>
+        <div class="feature-num">1</div>
         <div class="feature-body">
           <strong>Notes & Theory</strong>
           <p>Structured Python lessons covering fundamentals to advanced topics — decorators, generators, comprehensions, and more. Read offline, anytime.</p>
         </div>
       </div>
       <div class="app-feature">
-        <div class="feature-num">2<div class="splash"></div></div>
+        <div class="feature-num">2</div>
         <div class="feature-body">
           <strong>Built-in Compiler</strong>
           <p>Write and run Python code directly on your phone. No setup, no internet. Fast output rendering so you can test ideas on the go.</p>
         </div>
       </div>
       <div class="app-feature">
-        <div class="feature-num">3<div class="splash"></div></div>
+        <div class="feature-num">3</div>
         <div class="feature-body">
           <strong>Code Examples</strong>
           <p>Ready-to-run snippets across common patterns and concepts. Copy, tweak, and learn by doing — all in one place.</p>
         </div>
       </div>
       <div class="app-feature">
-        <div class="feature-num">4<div class="splash"></div></div>
+        <div class="feature-num">4</div>
         <div class="feature-body">
           <strong>Articles</strong>
           <p>Curated Python articles and tutorials pulled fresh via RSS. Stay updated with the ecosystem without leaving the app.</p>
         </div>
       </div>
       <div class="app-feature">
-        <div class="feature-num">5<div class="splash"></div></div>
+        <div class="feature-num">5</div>
         <div class="feature-body">
           <strong>Sanzu AI</strong>
           <p>Your built-in Python assistant. Ask questions, get explanations, debug your code, and understand errors — powered by AI, right inside the app.</p>
@@ -812,19 +809,20 @@
       </div>
     </div>
 
-    <!-- ── REVIEWS ── -->
+    <!-- ── REVIEWS — swipeable cards ── -->
     <div class="reviews-section">
       <div class="reviews-heading">
         What people are saying
         <span class="stars-avg">★★★★★ 4.9</span>
       </div>
-      <div class="reviews-grid">
+
+      <div class="reviews-rail" id="reviewsRail">
         <div class="review-card">
           <div class="review-top">
             <span class="reviewer-name">Priya S.</span>
             <span class="review-stars">★★★★★</span>
           </div>
-          <div class="review-text">Finally an app that actually works offline. I use it during commute and the notes are genuinely well written — not just copy-pasted from W3Schools. The compiler is fast too.</div>
+          <div class="review-text">"Works offline, notes are well written — not copy-pasted from W3Schools. Compiler is fast too."</div>
           <div class="review-meta">BCA 2nd year · Pune</div>
         </div>
         <div class="review-card">
@@ -832,7 +830,7 @@
             <span class="reviewer-name">Rahul M.</span>
             <span class="review-stars">★★★★★</span>
           </div>
-          <div class="review-text">Sanzu AI is genuinely useful. I was stuck on a list comprehension bug at midnight, asked it, got a clear explanation in seconds. No nonsense, no ads, no account. Just works.</div>
+          <div class="review-text">"Sanzu AI is genuinely useful. Stuck on a list comprehension bug at midnight — clear explanation in seconds. No ads, no account."</div>
           <div class="review-meta">Engineering student · Bangalore</div>
         </div>
         <div class="review-card">
@@ -840,7 +838,7 @@
             <span class="reviewer-name">Deepika R.</span>
             <span class="review-stars">★★★★☆</span>
           </div>
-          <div class="review-text">Really good for exam prep. The decorators and generators chapter helped me understand things my college notes never explained properly. Would love more topics on file handling.</div>
+          <div class="review-text">"Great for exam prep. Decorators and generators chapter explained things my college notes never did. Would love more on file handling."</div>
           <div class="review-meta">MCA student · Chennai</div>
         </div>
         <div class="review-card">
@@ -848,7 +846,7 @@
             <span class="reviewer-name">Arjun T.</span>
             <span class="review-stars">★★★★★</span>
           </div>
-          <div class="review-text">10 MB and it does more than half the 100 MB "learning" apps on the Play Store. The examples section alone is worth it — I keep coming back to it when I forget syntax.</div>
+          <div class="review-text">"10 MB and it does more than half the 100 MB learning apps. The examples section alone is worth it."</div>
           <div class="review-meta">Freelance dev · Hyderabad</div>
         </div>
         <div class="review-card">
@@ -856,12 +854,69 @@
             <span class="reviewer-name">Sneha K.</span>
             <span class="review-stars">★★★★★</span>
           </div>
-          <div class="review-text">I'm a tutor and I recommend this to all my students now. No login, no subscriptions, no distractions. They can actually focus on learning Python instead of navigating menus.</div>
+          <div class="review-text">"I recommend this to all my students. No login, no subscriptions, no distractions. They can actually focus on Python."</div>
           <div class="review-meta">Python tutor · Delhi</div>
         </div>
       </div>
+
+      <div class="reviews-dots" id="reviewsDots">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
     <!-- ── END REVIEWS ── -->
+
+    <!-- ── FAQ ── -->
+    <div class="faq-section">
+      <div class="faq-heading">Frequently asked</div>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+            Is Sanzu really free? No ads?
+            <i class="fas fa-chevron-down faq-chevron"></i>
+          </button>
+          <div class="faq-a">Yes, completely free. No ads, no in-app purchases, no account required. Download the APK and use everything offline.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+            Which Android version does it support?
+            <i class="fas fa-chevron-down faq-chevron"></i>
+          </button>
+          <div class="faq-a">Sanzu runs on Android 7.0 and above. It has been tested on Android 12 and 13 with the v1.1 crash fix applied.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+            Does the AI feature need internet?
+            <i class="fas fa-chevron-down faq-chevron"></i>
+          </button>
+          <div class="faq-a">Sanzu AI needs an internet connection to respond, since it calls an AI API. All other features — notes, compiler, examples — work fully offline.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+            How do I install the APK?
+            <i class="fas fa-chevron-down faq-chevron"></i>
+          </button>
+          <div class="faq-a">Download the APK, go to Settings → Install unknown apps, enable permission for your browser or file manager, then open the downloaded file and tap Install.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+            Can I contribute or report a bug?
+            <i class="fas fa-chevron-down faq-chevron"></i>
+          </button>
+          <div class="faq-a">Yes! Open an issue or pull request on the GitHub repo at github.com/heysanzu/sanzu. All feedback is welcome.</div>
+        </div>
+
+      </div>
+    </div>
+    <!-- ── END FAQ ── -->
 
     <footer>
       <div class="github-foot">
@@ -893,60 +948,110 @@
       if (e.key === 'Escape') closePopup();
     });
 
-    /* ── SCREENSHOT CAROUSEL ── */
+    /* ── SCREENSHOT CAROUSEL AUTO-SCROLL ── */
     (function () {
-      const track    = document.getElementById('screenshotsTrack');
       const overflow = document.getElementById('screenshotsOverflow');
-      const btnPrev  = document.getElementById('carouselPrev');
-      const btnPause = document.getElementById('carouselPause');
-      const btnNext  = document.getElementById('carouselNext');
+      const track    = document.getElementById('screenshotsTrack');
+      if (!overflow || !track) return;
 
-      let paused = false;
-      const STEP = 176; // frame width + gap
+      const frames     = track.querySelectorAll('.screenshot-frame');
+      const total      = frames.length;
+      let current      = 0;
+      let userPaused   = false;
+      let timer        = null;
 
-      /* pause / resume helpers */
-      function pause() {
-        paused = true;
-        track.classList.add('paused');
-        btnPause.innerHTML = '<i class="fas fa-play"></i> Play';
-      }
-      function play() {
-        paused = false;
-        track.classList.remove('paused');
-        btnPause.innerHTML = '<i class="fas fa-pause"></i> Pause';
+      function getFrameW() {
+        return frames[0].offsetWidth + 16; /* gap 1rem ≈ 16px */
       }
 
-      btnPause.addEventListener('click', () => paused ? play() : pause());
-
-      /* nudge via CSS animation offset trick — shift translate by STEP */
-      let offset = 0;
-      function nudge(dir) {
-        pause();
-        offset += dir * STEP;
-        track.style.transition = 'transform 0.3s ease';
-        track.style.transform  = `translateX(${offset}px)`;
-        // re-enable animation after nudge, resetting offset
-        setTimeout(() => {
-          track.style.transition = '';
-          track.style.transform  = '';
-          offset = 0;
-          // keep paused; user clicked so let them resume manually
-        }, 350);
+      function goTo(idx) {
+        /* wrap around */
+        if (idx >= total) idx = 0;
+        if (idx < 0)      idx = total - 1;
+        current = idx;
+        overflow.scrollTo({ left: current * getFrameW(), behavior: 'smooth' });
       }
 
-      btnPrev.addEventListener('click', () => nudge(1));
-      btnNext.addEventListener('click', () => nudge(-1));
+      function startAuto() {
+        clearInterval(timer);
+        timer = setInterval(() => {
+          if (!userPaused) goTo(current + 1);
+        }, 2500);
+      }
 
-      /* pause on hover / touch */
-      overflow.addEventListener('mouseenter', () => { if (!paused) track.classList.add('paused'); });
-      overflow.addEventListener('mouseleave', () => { if (!paused) track.classList.remove('paused'); });
-      overflow.addEventListener('touchstart', () => track.classList.add('paused'), { passive: true });
-      overflow.addEventListener('touchend',   () => { if (!paused) setTimeout(() => track.classList.remove('paused'), 1500); }, { passive: true });
+      /* sync current on manual swipe */
+      overflow.addEventListener('scroll', () => {
+        current = Math.round(overflow.scrollLeft / getFrameW());
+      }, { passive: true });
 
-      /* drag-to-scroll (mouse) */
-      track.addEventListener('mousedown', () => { track.classList.add('paused'); });
-      document.addEventListener('mouseup', () => { if (!paused) setTimeout(() => track.classList.remove('paused'), 800); });
+      /* pause while user interacts */
+      overflow.addEventListener('mouseenter', () => { userPaused = true; });
+      overflow.addEventListener('mouseleave', () => { userPaused = false; });
+      overflow.addEventListener('touchstart', () => { userPaused = true; }, { passive: true });
+      overflow.addEventListener('touchend',   () => { setTimeout(() => { userPaused = false; }, 2000); }, { passive: true });
+
+      startAuto();
     })();
+
+    /* ── REVIEWS AUTO-SLIDE + DOTS ── */
+    (function () {
+      const rail  = document.getElementById('reviewsRail');
+      const dots  = document.querySelectorAll('#reviewsDots span');
+      if (!rail || !dots.length) return;
+
+      const cards   = rail.querySelectorAll('.review-card');
+      const total   = cards.length;
+      let current   = 0;
+      let timer     = null;
+      let userPaused = false;
+
+      function getCardW() {
+        return cards[0].offsetWidth + Math.round(parseFloat(getComputedStyle(rail).gap) || 14);
+      }
+
+      function goTo(idx) {
+        current = (idx + total) % total;
+        rail.scrollTo({ left: current * getCardW(), behavior: 'smooth' });
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+
+      function startAuto() {
+        clearInterval(timer);
+        timer = setInterval(() => {
+          if (!userPaused) goTo(current + 1);
+        }, 3000);
+      }
+
+      /* sync dots on manual swipe */
+      rail.addEventListener('scroll', () => {
+        const idx = Math.round(rail.scrollLeft / getCardW());
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+        current = idx;
+      }, { passive: true });
+
+      /* pause auto-slide while user interacts */
+      rail.addEventListener('touchstart', () => { userPaused = true; }, { passive: true });
+      rail.addEventListener('touchend',   () => { setTimeout(() => { userPaused = false; }, 2000); }, { passive: true });
+      rail.addEventListener('mouseenter', () => { userPaused = true; });
+      rail.addEventListener('mouseleave', () => { userPaused = false; });
+
+      startAuto();
+    })();
+
+    /* ── FAQ ── */
+    function toggleFaq(btn) {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      // close all
+      document.querySelectorAll('.faq-q').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        b.nextElementSibling.classList.remove('open');
+      });
+      // open clicked if it was closed
+      if (!expanded) {
+        btn.setAttribute('aria-expanded', 'true');
+        btn.nextElementSibling.classList.add('open');
+      }
+    }
   </script>
 </body>
 </html>
