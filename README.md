@@ -69,7 +69,7 @@ If you enjoy Sanzu, please consider:
 ## License
 © 2026-27 Sanzu. All rights reserved.
 
-Maintained by [@heysanzu](https://github.com/heysanzu)
+Maintained by [@heysanzu](https://github.com/heysanzu) and [@shahnewazbite](https://github.com/shahnewazbite)
 
 ---
 
